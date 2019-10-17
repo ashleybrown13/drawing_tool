@@ -23,7 +23,8 @@ function setup() {
 function draw() {
 
 
-    if (mouseX >50 && mouseX <width-50 && paint_mode == true) {       
+    if (mouseX >50 && mouseX <width-50 && paint_mode == true)
+    if (mouseY >0 && mouseY <height && paint_mode == true) {       
 
 
 //xmode
@@ -117,11 +118,6 @@ function draw() {
 
     pop()
 
-    push()
-    //brushes to erase, clear screen, save.
-
-    pop()
-
 
 
 }
@@ -162,7 +158,6 @@ function mouseClicked() {
     // check to see if the mouse click was within the bright blue button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 170 && mouseY < 240) {
         stroke(105, 210, 231)
-
     }
 
     // check to see if the mouse click was within the greenblue button coords
