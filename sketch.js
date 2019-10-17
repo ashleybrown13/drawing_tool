@@ -47,10 +47,6 @@ function draw() {
     }
 
 
-
-
-
-
     // make a button on the canvas 
     // use push and pop to isolate any changes from the rest of your code
     push()
@@ -121,6 +117,13 @@ function draw() {
 
     pop()
 
+    push()
+    //brushes to erase, clear screen, save.
+
+    pop()
+
+
+
 }
 
 function mousePressed() {
@@ -134,47 +137,49 @@ function mouseReleased() {
 function mouseClicked() {
 
   print(int(mouseX), int(mouseY))
-    // check to see if the mouse click was within the red button coords
+    // check to see if the mouse click was within the white button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 10 && mouseY < 40) {
         stroke(255)
+
     }
 
-    // check to see if the mouse click was within the blue button coords
+    // check to see if the mouse click was within the light grey button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 50 && mouseY < 90) {
         stroke(171, 171, 171)
     }
 
-    // check to see if the mouse click was within the blue button coords
+    // check to see if the mouse click was within the dark grey button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 90 && mouseY < 140) {
         stroke(140, 140, 140)
     }
 
 
-    // check to see if the mouse click was within the blue button coords
+    // check to see if the mouse click was within the black button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 130 && mouseY < 190) {
         stroke(0)
     }
 
-    // check to see if the mouse click was within the blue button coords
+    // check to see if the mouse click was within the bright blue button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 170 && mouseY < 240) {
         stroke(105, 210, 231)
+
     }
 
-    // check to see if the mouse click was within the blue button coords
+    // check to see if the mouse click was within the greenblue button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 210 && mouseY < 290) {
         stroke(167, 219, 216)
     }
 
-    // check to see if the mouse click was within the blue button coords
+    // check to see if the mouse click was within the light green button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 250 && mouseY < 340) {
         stroke(224, 228, 204)
     }
 
-    // check to see if the mouse click was within the blue button coords
+    // check to see if the mouse click was within the light orange button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 290 && mouseY < 390) {
         stroke(243, 134, 48)
     }
-    // check to see if the mouse click was within the blue button coords
+    // check to see if the mouse click was within the orange button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 330 && mouseY < 440) {
         stroke(250, 105, 0)
     }
@@ -207,9 +212,14 @@ function mouseClicked() {
     }
 
 
-
 }    
 
+function clearScreen() {
+    print("this is a clear screen function")
+    fill(255)
+    rect(50, 0, width-50, height)
+
+}
 
 // call these functions from HTML 
 
