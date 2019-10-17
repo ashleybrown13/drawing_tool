@@ -63,7 +63,7 @@ function draw() {
     stroke(0)
 
     // make the colorbar area
-    fill(200, 200, 200)
+    fill(246, 247, 241)
     rect(0, 0, 50, height)
 
     // make the white button
@@ -109,20 +109,20 @@ function draw() {
     stroke(0)
 
     // make the toolbar area
-    fill(224, 224, 224)
+    fill(246, 247, 241)
     rect(width-50, 0, 50, height)
 
     // make the ellipse
-    fill(224, 224, 224)
+    fill(246, 247, 241)
     ellipse(width-25, 30, 30, 30)
 
     // make the x
-    fill(0, 0, 255)
+    fill(246, 247, 241)
     line(width-40, 70, width-10, 90)
     line(width-10, 70, width-40, 90)
 
     //make the arc
-    fill(224, 224, 224)
+    fill(246, 247, 241)
     arc(width-25, 130, 30, 30, angle, angle-100)
 
     //stroke button
