@@ -3,6 +3,7 @@ let angle = 10
 let ellipse_mode = false
 let x_mode = false
 let arc_mode = false
+let stroke_mode = false
 
 function setup() {
 
@@ -17,14 +18,12 @@ function setup() {
    //default color and stroke
     stroke(0, 0, 0, 25)
 
-
 }
 
 function draw() {
 
 
-    if (mouseX >50 && mouseX <width-50 && paint_mode == true)
-    if (mouseY >0 && mouseY <height && paint_mode == true) {       
+    if (mouseX >50 && mouseX <width-50 && mouseY >0 && mouseY <height && paint_mode == true) {
 
 
 //xmode
@@ -45,7 +44,17 @@ function draw() {
             angle += 1
         }
 
-    }
+}
+
+//star
+    // if (star_mode == true) {
+    //     push();
+    //     translate(width * 0.8, height * 0.5);
+    //     rotate(frameCount / -100.0);
+    //     star(0, 0, 30, 70, 5);
+    //     pop();
+    // }
+
 
 
     // make a button on the canvas 
@@ -116,6 +125,16 @@ function draw() {
     fill(224, 224, 224)
     arc(width-25, 130, 30, 30, angle, angle-100)
 
+    //stroke button
+    textSize(18);
+    textFont('Garamond');
+    noStroke();
+    fill(243, 134, 48);
+    text('stroke', 652, 320)
+
+    //fill button
+    text('fill', 652, 350)
+
     pop()
 
 
@@ -135,48 +154,83 @@ function mouseClicked() {
   print(int(mouseX), int(mouseY))
     // check to see if the mouse click was within the white button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 10 && mouseY < 40) {
-        stroke(255)
-
+        if (stroke_mode == true) {
+            stroke(255)
+        } else {
+            fill(255)
+        }
     }
 
     // check to see if the mouse click was within the light grey button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 50 && mouseY < 90) {
-        stroke(171, 171, 171)
+        if (stroke_mode == true) {
+            stroke(171, 171, 171)
+        } else {
+            fill(171, 171, 171)
+        }        
     }
 
     // check to see if the mouse click was within the dark grey button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 90 && mouseY < 140) {
-        stroke(140, 140, 140)
+        if (stroke_mode == true) {
+            stroke(140, 140, 140)
+        } else {
+            fill(140, 140, 140)
+        } 
     }
 
 
     // check to see if the mouse click was within the black button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 130 && mouseY < 190) {
-        stroke(0)
+         if (stroke_mode == true) {
+            stroke(0)
+        } else {
+            fill(0)
+        } 
     }
 
     // check to see if the mouse click was within the bright blue button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 170 && mouseY < 240) {
-        stroke(105, 210, 231)
+         if (stroke_mode == true) {
+            stroke(105, 210, 231)
+        } else {
+            fill(105, 210, 231)
+        } 
     }
 
     // check to see if the mouse click was within the greenblue button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 210 && mouseY < 290) {
-        stroke(167, 219, 216)
+        if (stroke_mode == true) {
+            stroke(167, 219, 216)
+        } else {
+            fill(167, 219, 216)
+        }
     }
 
     // check to see if the mouse click was within the light green button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 250 && mouseY < 340) {
-        stroke(224, 228, 204)
+        if (stroke_mode == true) {
+            stroke(224, 228, 204)
+        } else {
+            fill(224, 228, 204)
+        }
     }
 
     // check to see if the mouse click was within the light orange button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 290 && mouseY < 390) {
-        stroke(243, 134, 48)
+        if (stroke_mode == true) {
+            stroke(243, 134, 48)
+        } else {
+            fill(243, 134, 48)
+        }
     }
     // check to see if the mouse click was within the orange button coords
     if (mouseX > 10 && mouseX < 40 && mouseY > 330 && mouseY < 440) {
-        stroke(250, 105, 0)
+        if (stroke_mode == true) {
+            stroke(250, 105, 0)
+        } else {
+            fill(250, 105, 0)
+        }
     }
     
     // ellipse
@@ -205,9 +259,16 @@ function mouseClicked() {
             arc_mode = false
         }
     }
+//stroke button
+    if (mouseX > 652 && mouseX < 692 && mouseY > 306 && mouseY < 322) {
+       stroke_mode = true
+    }
+//fill button
+    if (mouseX > 652 && mouseX < 680 && mouseY > 335 && mouseY < 356) {
+        stroke_mode = false
+    }    
 
-
-}    
+}
 
 function clearScreen() {
     print("this is a clear screen function")
@@ -225,5 +286,4 @@ function colorBlue() {
 function colorRed() {
     stroke(255, 0, 0, 50)
 }
-
 
