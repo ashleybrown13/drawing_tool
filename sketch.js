@@ -4,6 +4,9 @@ let ellipse_mode = false
 let x_mode = false
 let arc_mode = false
 let stroke_mode = false
+let eraser_mode = false
+let flower_mode = false
+
 
 function setup() {
 
@@ -19,6 +22,8 @@ function setup() {
     stroke(0, 0, 0, 25)
 
 }
+
+
 
 function draw() {
 
@@ -43,17 +48,31 @@ function draw() {
             arc(mouseX, mouseY, 50, 50, angle, angle-100)
             angle += 1
         }
+//eraser
+        push()
+        if (eraser_mode == true) {
+            ellipse_mode = false
+            x_mode = false
+            arc_mode = false
+            stroke_mode = false
+            fill(255)
+            stroke(255)
+            ellipse(mouseX, mouseY, 70, 70)
+        }
+        pop()
 
+//flower
+    push()
+    if (flower_mode == true) {
+        angleMode(RADIANS)
+        translate(mouseX, mouseY);
+        for (let i = 0; i < 10; i ++) {
+        ellipse(0, 7, 8, 20);
+        rotate(PI/5);
+        }
+    }
+    pop()
 }
-
-//star
-    // if (star_mode == true) {
-    //     push();
-    //     translate(width * 0.8, height * 0.5);
-    //     rotate(frameCount / -100.0);
-    //     star(0, 0, 30, 70, 5);
-    //     pop();
-    // }
 
 
 
@@ -124,6 +143,45 @@ function draw() {
     //make the arc
     fill(246, 247, 241)
     arc(width-25, 130, 30, 30, angle, angle-100)
+
+    //make a flower
+push()
+    angleMode(RADIANS)
+    translate(674, 180);
+    stroke(0);
+    for (let i = 0; i < 10; i ++) {
+    ellipse(0, 7, 8, 20);
+    rotate(PI/5);
+  }
+pop()
+
+
+    //eraser button
+    stroke(180)
+    fill(242, 184, 231)
+    beginShape()
+    vertex(665, 279)
+    vertex(660, 283)
+    vertex(667, 291)
+    vertex(672, 286)
+    vertex(665, 279)
+    endShape()
+    stroke(50)
+    fill(50)
+    beginShape()
+    vertex(679, 261)
+    vertex(690, 275)
+    vertex(674, 289)
+    vertex(663, 276)
+    vertex(679, 261)
+    endShape()
+    textSize(10);
+    textFont('Garamond');
+    noStroke();
+    fill(255);
+    text('E', 674, 278)
+
+
 
     //stroke button
     textSize(18);
@@ -237,6 +295,7 @@ function mouseClicked() {
     if (mouseX > width-40 && mouseX < width-10 && mouseY > 15 && mouseY < 45) {
         if (ellipse_mode == false) {
             ellipse_mode = true
+            eraser_mode = false
         } else {
             ellipse_mode = false
         }
@@ -246,6 +305,7 @@ function mouseClicked() {
     if (mouseX > width-40 && mouseX < width-10 && mouseY > 65 && mouseY < 90) {
         if (x_mode == false) {
             x_mode = true
+            eraser_mode = false
         } else {
             x_mode = false
         }
@@ -255,6 +315,7 @@ function mouseClicked() {
     if (mouseX > width-40 && mouseX < width-10 && mouseY > 113 && mouseY < 145) {
         if (arc_mode == false) {
             arc_mode = true
+            eraser_mode = false
         } else {
             arc_mode = false
         }
@@ -266,7 +327,27 @@ function mouseClicked() {
 //fill button
     if (mouseX > 652 && mouseX < 680 && mouseY > 335 && mouseY < 356) {
         stroke_mode = false
-    }    
+    }   
+
+//eraser button
+    if (mouseX > 656 && mouseX < 692 && mouseY > 255 && mouseY < 292) {
+        if (eraser_mode == false) {
+            eraser_mode = true
+        } else {
+            eraser_mode = false
+                }  
+
+    }
+
+//flower button
+    if (mouseX > width-40 && mouseX < width-10 && mouseY > 159 && mouseY < 198) {
+            if (flower_mode == false) {
+                flower_mode = true
+                eraser_mode = false
+            } else {
+                flower_mode = false
+            }
+        }
 
 }
 
